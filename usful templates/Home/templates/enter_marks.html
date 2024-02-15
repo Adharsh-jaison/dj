@@ -1,0 +1,16 @@
+<!-- enter_marks.html -->
+
+<form method="POST" action="{% url 'enter_marks' %}">
+    {% csrf_token %}
+    <label for="name">Select Name:</label>
+    <select id="name" name="name">
+        {% for person in persons %}
+            <option value="{{ person.id }}">{{ person.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="marks">Marks:</label>
+    <input type="text" id="marks" name="marks">
+
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu Example</title>
+</head>
+<body>
+    <form action="" method="post">
+    <h2>Select a fruit:</h2>
+   
+    <select id="apple">
+        {% for i in fd %}
+        <option value="apple">{{i.food}}</option>
+        {% comment %} <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+        <option value="grape">Grape</option>
+        <option value="strawberry">Strawberry</option> {% endcomment %}
+        {% endfor %}
+    </select>
+
+    <p>selected: <span id="apples"></span></p>
+
+     <script>
+        // JavaScript to handle the selection
+        document.getElementById("apple").addEventListener("change", function() {
+            var selectedOption = this.options[this.selectedIndex];
+            document.getElementById("apples").innerText = selectedOption.text;
+        });
+    </script> 
+</body>
+</html>

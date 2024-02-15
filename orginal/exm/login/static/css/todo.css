@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.todo-item {
+    margin-bottom: 10px;
+}
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+.add-todo input[type="text"] {
+    width: calc(100% - 70px);
+}
+.add-todo input[type="submit"] {
+    width: 70px;
+    cursor: pointer;
+}

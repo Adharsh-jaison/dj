@@ -1,0 +1,24 @@
+<!-- display_marks.html -->
+{% comment %} 
+{% if marks %}
+    <h2>Marks:</h2>
+    <ul>
+        {% for mark in marks %}
+            <li>{{ mark.marks }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No marks found for selected name.</p>
+{% endif %} {% endcomment %}
+
+<form method="POST" action="{% url 'enter_marks' %}">
+    {% csrf_token %}
+    <label for="name">Select Name:</label>
+    <select id="name" name="name">
+        {% for person in persons %}
+            <option value="{{ person.id }}">{{ person.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="marks">Marks:</label>
+    <input type="text" id="marks" name="marks">

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static "/css/todo.css" %}"
+    
+</head>
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <form class="add-todo">
+            <input type="text" placeholder="Add new item..." required>
+            <input type="submit" value="Add">
+        </form>
+        <ul class="todo-list">
+            <!-- To-do items will be added here dynamically -->
+        </ul>
+    </div>
+    {% comment %} <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector('.add-todo');
+            const list = document.querySelector('.todo-list');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const input = this.querySelector('input[type="text"]');
+                const todoText = input.value.trim();
+                if(todoText !== '') {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <label>
+                            <input type="checkbox">
+                            <span>${todoText}</span>
+                        </label>
+                        <button class="remove-btn">Remove</button>
+                    `;
+                    list.appendChild(listItem);
+                    input.value = '';
+                }
+            });
+
+            list.addEventListener('click', function(event) {
+                if(event.target && event.target.matches('.remove-btn')) {
+                    event.target.closest('li').remove();
+                }
+            });
+        });
+    </script> {% endcomment %}
+</body>
+</html>
